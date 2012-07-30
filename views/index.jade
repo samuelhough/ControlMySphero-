@@ -1,0 +1,18 @@
+html
+	script(src="http://localhost:#{port}/socket.io/socket.io.js")
+	script(src="js/jquery.js")
+	script(src="js/underscore.js")
+	script(src="js/backbone.js")
+
+	body
+		h1="Control"
+		div="controls"
+			button(id='stop')="stop"
+			div(id="board")
+				canvas(id="stage",width="500",height="500",style="width: 500px; height: 500px; border: 1px solid black;")
+		div(id="stats")
+		div(id="stats_2")
+		script
+			var socket = io.connect('http://localhost:#{port}');
+			
+		script(src="js/joystick.js")

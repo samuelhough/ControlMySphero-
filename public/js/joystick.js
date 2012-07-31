@@ -1,31 +1,19 @@
-var Stats = Backbone.Model.extend({
-	defaults: {
-		socket: socket
-	},
-	initialize: function(socket){
-
-		socket.on('stats', function(data){
-			this.set({
-				heading: data.heading,
-				alive: data.alive,
-				speed: data.speed,
-				readyToMove: data.readyToMove
-			})
-		})
-	}
+var driver = document.getElementById('driver');
+socket.on('request_driver', function(){
+	socket.emit('apply_for_driver')
 })
-			
-var StatView = Backbone.View.extend({
-	el: $('#stats'),
-	model: null,
-	render: function(){
-		$(this.el).html('hi')
-	},
-	initialize: function(socket){
-		this.model = new Stats(socket);
-		this.model.on('change', _.bind(this.render, this))
-		render();
-	}
+socket.on('connected', function(){
+	$(driver).css('background-color','grey').html('connected')
+})
+socket.on('is_driver', function(){
+	$(driver).css('background-color','green').html('is Pilot')
+})
+socket.on('not_driver', function(){
+	$(driver).css('background-color','red').html('Not pilot')
+})
+socket.on('disconnect', function(){
+	$(driver).css('background-color','red').html('DISCONNECTED')
+
 })
 //var stats = new StatsView(socket);
 
@@ -134,6 +122,9 @@ $(canvas).on('mousedown', function(e){
 })
 $('#stop').on('click', function(){
 	socket.emit('stop_ball', true)
+})
+$('#quit').on('click', function(){
+	socket.emit('leave_pilot_seat');
 })
 
 function moveBall(data){

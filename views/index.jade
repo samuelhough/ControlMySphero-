@@ -8,10 +8,12 @@ html
 		h1="Control"
 		div="controls"
 			button(id='stop')="stop"
+			button(id='quit')="stop piloting"
 			div(id="board")
 				canvas(id="stage",width="500",height="500",style="width: 500px; height: 500px; border: 1px solid black;")
 		div(id="stats")
 		div(id="stats_2")
+		div(id="driver",stlye="width: 100px; height: 10px; background-color: red")='stat'
 		script
 			var socket = io.connect('http://localhost:#{port}');
 			

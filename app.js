@@ -5,37 +5,19 @@ var express = require('express'),
 	port = 8000,
 	_public = "./public",
 	routes = require('./routes.js')(app, port, _public),
-	io = require('socket.io').listen(port+1),
+	io = require('socket.io'),
 	Ball = require('./Ball.js')(Sphero, app);
-	
+	Driver = require('./Driver.js')(port+1);
 
 app.set('view engine', 'jade');	
 app.set('views', __dirname + '/views');
 
+var noop = function(){}
+var fakeSpherey = { setHeading: noop, move: noop } ;
+var spherey = fakeSpherey; //new Ball("/dev/tty.Sphero-GGB-RN-SPP");
+var valet = new Driver(spherey, io);
 
-var spherey = new Ball("/dev/tty.Sphero-GGB-RN-SPP");
 
-io.on('connection', function(socket){
-
-	socket.on('move_ball', function(data){
-		console.log(data.heading)
-		spherey.setHeading(data.heading, function(){
-			spherey.move(data.speed);
-		})
-	})
-	socket.on('stop_ball', function(){
-		spherey.stop(function(){
-			console.log("Spherey ready to move again")
-		});
-	})
-	socket.on('set_heading', function(data){
-		spherey.setHeading(data.heading);
-	})
-
-//	setInterval(function(){
-	//	socket.emit('stats', spherey.toJSON())
-//	}, 100)
-})
 
 
 app.listen(port);

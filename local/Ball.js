@@ -86,9 +86,11 @@ module.exports = function(Sphero, app){
 		this.speed = Math.round(speed);
 		this.heading = Math.round(heading);
 
-		console.log("Moving")
-		self.sphero.roll(this.speed, this.heading, function(){
-			self.readyToMove = true;
+		console.log("Moving H: "+heading+" S:"+speed)
+		this.sphero.setHeading(this.heading, function(){
+			self.sphero.roll(self.speed, self.heading, function(){
+				self.readyToMove = true;
+			});
 		});
 		
 		

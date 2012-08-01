@@ -2,15 +2,15 @@
   "scripts": {
     "start": "remoteServer.js"
   },
-  "version": "0.0.0-12",
+  "version": "0.0.0-16",
   "engines": {
     "node": "0.6.x"
   },
   "name": "sphero",
   "subdomain": "sphero",
   "dependencies": {
-    "express": ">= 3.0.0rc1",
-    "socket.io": "0.9.x",
+    "express": "2.5.11",
+    "socket.io": "0.9.6",
     "jade": ">= 0.27.0"
   }
 }

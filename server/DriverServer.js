@@ -3,12 +3,12 @@ module.exports = function(port){
 	var Pilot = require('./Pilot.js');
 	var socketKey = 'fc1fe409-1881-4b88-8b5c-d311a635052b';
 
-	function Driver(spherey, socket, app){
+	function Driver(spherey, io, app){
 		this.spherey = spherey;
 		this.pilot = null;
 		this.current_driver = null;
 		this.possible_drivers = [];
-		this.io = socket.listen(app);
+		this.io = io;
 		this.setupSocket();
 		this.msgs = {
 			request_driver: 'request_driver'

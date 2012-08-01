@@ -1,10 +1,10 @@
 module.exports = function(app, port, _public){
 
-	app.get('/', function(req, res){
+	app.get('/spherey', function(req, res){
 		res.render('index.jade', {
 			layout: false,
 			origin: 'http://sphero.jit.su',
-			server: 'http://sphero.jit.su/'
+			server: 'http://sphero.jit.su/spherey'
 		})
 	})
 	app.get('/js/:file', function(req,res){

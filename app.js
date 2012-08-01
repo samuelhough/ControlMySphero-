@@ -6,16 +6,19 @@ var express = require('express'),
 	_public = "./public",
 	routes = require('./routes.js')(app, port, _public),
 	io = require('socket.io'),
-	Ball = require('./Ball.js')(Sphero, app);
-	Driver = require('./Driver.js')(port+1);
+	Ball = require('./BallServer.js')(Sphero, app);
+	Driver = require('./DriverServer.js')(port+1);
 
 app.set('view engine', 'jade');	
 app.set('views', __dirname + '/views');
 
 var noop = function(){}
 var fakeSpherey = { setHeading: noop, move: noop } ;
-var spherey = fakeSpherey; //new Ball("/dev/tty.Sphero-GGB-RN-SPP");
+
+
+var spherey = new Ball();
 var valet = new Driver(spherey, io);
+
 
 
 

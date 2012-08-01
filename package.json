@@ -1,0 +1,16 @@
+{
+  "name": "sphero",
+  "subdomain": "sphero",
+  "scripts": {
+    "start": "app.js"
+  },
+  "version": "0.0.0-1",
+  "engines": {
+    "node": "0.6.x"
+  },
+  "dependencies": {
+    "express": "3.0.0rc1",
+    "socket.io": "0.9.x",
+    "Sphero-Node-SDK": "0.1.x"
+  }
+}

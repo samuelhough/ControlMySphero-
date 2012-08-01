@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "start": "remoteServer.js"
+  },
+  "version": "0.0.0-12",
+  "engines": {
+    "node": "0.6.x"
+  },
+  "name": "sphero",
+  "subdomain": "sphero",
+  "dependencies": {
+    "express": ">= 3.0.0rc1",
+    "socket.io": "0.9.x",
+    "jade": ">= 0.27.0"
+  }
+}

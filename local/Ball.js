@@ -1,4 +1,4 @@
-module.exports = function(Sphero, app){
+module.exports = function(Sphero){
 	
 	var Ball = function(connectionPort, socket){
 		console.log(" ");

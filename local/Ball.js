@@ -2,7 +2,7 @@ module.exports = function(Sphero){
 	
 	var Ball = function(connectionPort, socket){
 		console.log(" ");
-		console.log("Connecting to "+connectionPort)
+		console.log("Spherey: Connecting to "+connectionPort)
 		var self = this;
 		this.alive = false;
 		this.heading = 0;

@@ -10,11 +10,5 @@ module.exports = function(app, port, _public){
 		var fileName = req.params.file;
 		res.sendfile(_public + "/js/"+fileName);
 	})
-	app.get('/private', function(req,res){
-		res.render('index.jade', {
-			layout: false,
-			server: 'http://localhost:'+(port+1)+'/private',
-			port: port+1
-		});
-	});
+
 }

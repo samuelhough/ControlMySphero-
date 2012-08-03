@@ -5,7 +5,8 @@ module.exports = function(app, port, _public){
 			layout: false,
 			origin: 'http://sphero.jit.su',
 			server: 'http://sphero.jit.su/spherey',
-			port: port
+			port: port,
+			fullpath: 'http://localhost:8000'
 		})
 	})
 	app.get('/js/:file', function(req,res){

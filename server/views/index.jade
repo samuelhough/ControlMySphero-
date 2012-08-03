@@ -1,5 +1,5 @@
 html
-	script(src="/socket.io/socket.io.js")
+	script(src="#{fullpath}/socket.io/socket.io.js")
 	script(src="js/jquery.js")
 	script(src="js/underscore.js")
 	script(src="js/Backbone.js")
@@ -27,13 +27,18 @@ html
 					
 							div(class="span12")="test"
 					div(class="span6")
-						div(id="board")
-							canvas(id="stage",width="500",height="500",style="width: 500px; height: 500px; border: 1px solid black;")
-						button(id='stop').button="stop"
-						button(id='quit')="stop piloting"
-						
+						div(class="span12")
+							div(id="board")
+								canvas(id="stage",width="500",height="500",style="width: 500px; height: 250px; border: 1px solid black;")
+							button(id='stop').button="stop"
+							button(id='quit')="stop piloting"
+						div(class="span12")
+								
+							div#stats
+								div#sphero_connected
+							
 		div(id="driver",stlye="width: 100px; height: 10px; background-color: red")='stat'
 		script
-			var socket = io.connect('#{server}');
-			
+			var serverAddress = '#{server}'			
 		script(src="js/joystick.js")
+		script(src="js/index.js")

@@ -18,6 +18,6 @@ var io = require('socket.io').listen(app);
 var spherey = new Ball();
 var valet = new Driver(spherey, io, app);
 
-
+console.log("Server running on port "+port);
 
 

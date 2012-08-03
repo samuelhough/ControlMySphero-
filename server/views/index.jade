@@ -1,18 +1,37 @@
 html
-	script(src="/socket.io/socket.io.js")
+	script(src="http://localhost:#{port}/socket.io/socket.io.js")
 	script(src="js/jquery.js")
 	script(src="js/underscore.js")
 	script(src="js/backbone.js")
+	link(rel="stylesheet",href="css/bootstrap.css",type='text/css')
+	script(src="js/bootstrap.js")
 
+	link(rel="stylesheet",href="css/index.css",type='text/css')
 	body
-		h1="Control"
-		div="controls"
-			button(id='stop')="stop"
-			button(id='quit')="stop piloting"
-			div(id="board")
-				canvas(id="stage",width="500",height="500",style="width: 500px; height: 500px; border: 1px solid black;")
-		div(id="stats")
-		div(id="stats_2")
+		div.top_row_color
+			div.container
+				div(class="row top_row")
+					div(class="span8 offset2")
+						iframe(width="560", height="135", src="http://www.youtube.com/embed/ghb6eDopW8I")#video
+
+		div#bottom_row
+			div.container
+				div(class="row")
+					
+					div(class="span6")#chat_container
+						div(class="span4").messages
+							p.oneMessage
+								div.user_name="sam"
+								div.user_message="message"
+						div(class="span1").users="users"
+					
+							div(class="span12")="test"
+					div(class="span6")
+						div(id="board")
+							canvas(id="stage",width="500",height="500",style="width: 500px; height: 500px; border: 1px solid black;")
+						button(id='stop').button="stop"
+						button(id='quit')="stop piloting"
+						
 		div(id="driver",stlye="width: 100px; height: 10px; background-color: red")='stat'
 		script
 			var socket = io.connect('#{server}');

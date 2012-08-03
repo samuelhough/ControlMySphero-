@@ -1,5 +1,4 @@
 module.exports = function(Sphero){
-	
 	var Ball = function(connectionPort, socket){
 		console.log(" ");
 		console.log("Spherey: Connecting to "+connectionPort)
@@ -20,9 +19,12 @@ module.exports = function(Sphero){
 		this.sphero.ping(function(){
 			console.log("Sphero Connected")
 			self.sphero.stop();
-
+			console.log('Setting color');
+			self.sphero.changeLedColor();
+			self.move(100, 50);
 		})
 	}
+
 	Ball.prototype.setupSocket = function(){
 		console.log('Setting up socket')
 		var self = this;
@@ -98,6 +100,7 @@ module.exports = function(Sphero){
 			self.stop();
 		}, self.stopTime)
 	}
+
 	Ball.prototype.stop = function(cb){
 		cb = cb || this.noop;
 		var self = this;
@@ -111,5 +114,4 @@ module.exports = function(Sphero){
 		}, 1000)
 	}
 	return Ball;
-
 }

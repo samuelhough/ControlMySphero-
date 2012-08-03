@@ -11,8 +11,8 @@ app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 
-app.listen();
 
+app.listen(port);
 var io = require('socket.io').listen(app);
 
 var spherey = new Ball();

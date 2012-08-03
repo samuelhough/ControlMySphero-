@@ -1,0 +1,42 @@
+body {
+  background-color: #3F5765;
+}
+
+.top_row {
+  height: 350px;
+  margin-top: 55px;
+  width: auto;
+ 
+
+}
+  .top_row_color {
+     background-color: rgb( 180, 212, 222);
+  }
+#bottom_row {
+  padding-top: 60px;
+}
+#video {
+  height: 300px;
+}
+#chat_container {
+  background-color: rgb(43, 58, 66);
+  height: 500px;
+
+}
+
+.messages {
+  padding-top: 10px;
+  color: rgb(171, 168, 152);
+  height: auto;
+}
+.users {
+  padding-top: 10px;
+}
+
+.user_name {
+  float: left;
+  margin-right: 5px;
+}
+  .user_message {
+    
+  }

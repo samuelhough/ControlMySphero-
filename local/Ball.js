@@ -21,8 +21,11 @@ module.exports = function(Sphero){
 			self.sphero.stop();
 			console.log('Setting color');
 			self.sphero.changeLedColor();
-			self.move(100, 50);
+			//self.move(100, 50);
 		})
+	}
+	Ball.prototype.setColor = function(arr){
+		this.sphero.changeLedColor(arr);
 	}
 
 	Ball.prototype.setupSocket = function(){

@@ -9,10 +9,8 @@ socket.on('connect', function(){
 	console.log("Connected to server")
 })
 
-var spherey;
-function start(){
-	spherey = new Ball("/dev/tty.Sphero-GGB-RN-SPP", socket);
-}
+var spherey = new Ball("/dev/tty.Sphero-GGB-RN-SPP", socket);
+
 
 var context = repl.start().context;
-context.start = start;
+context.spherey = spherey;
